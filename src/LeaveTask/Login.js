@@ -61,7 +61,7 @@ function Login() {
                     <button onClick={handleLoginUser} className={classes.btn}>Login</button>
                 </form>
                 <div style={{ display: "flex", justifyContent: "center" }}>
-                    <span style={{fontWeight:"bold",fontSize:"15px"}}>Not registered yet?</span>
+                    <span style={{fontWeight:"bold",fontSize:"14px"}}>Not registered yet?</span>
                     <button onClick={handleRegisterPage} className={classes.btn2} style={{fontWeight:"bold"}}>Register</button>
                 </div>
             </div>
