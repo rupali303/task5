@@ -1,0 +1,171 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 250px;
+    border: 2px solid;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 25vh;
+}
+
+.group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.group input , .group2 input, .group2 select{
+    border: 2px solid;
+    margin-top: 5px;
+    padding: 5px;
+}
+
+.btn {
+    background-color: rgb(49, 122, 190);
+    color: white;
+    font-weight: 600;
+    width: 96%;
+    box-shadow: 2px 2px 4px black;
+    border: 2px solid black;
+    margin: 30px 2% 0;
+    padding: 5px;
+    line-height: 14px;
+}
+
+.btn2 {
+    background-color: white;
+    color: rgb(49, 122, 190);
+    border: none;
+    padding: 5px;
+    margin-top: 20px;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 14px;
+}
+
+.btn:hover,
+.btn2:hover {
+    cursor: pointer;
+}
+
+.btn:hover{
+    box-shadow: 4px 4px 8px black;
+}
+
+span {
+    margin-top: 20px;
+}
+
+.container2 {
+    border: 2px solid;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 16vh;
+    width: 40vw;
+}
+
+.radio{
+    margin-left: 18px;
+}
+.radio input{
+    margin-right: 5px;
+}
+.radio label{
+    margin-right: 15px;
+}
+
+.row{
+    display: flex;
+    justify-content: space-evenly;
+}
+.group2{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    margin-top: 15px;
+}
+
+.btnl {
+    background-color: rgb(49, 122, 190);
+    color: white;
+    font-weight: 600;
+    width: max-content;
+    box-shadow: 2px 2px 4px black;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: 0 46% 20px;
+    padding: 5px;
+    line-height: 14px;
+}
+.date{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+
+.fromDate label{
+    display: flex;
+    flex-direction: column;
+    margin-right: 15px;
+}
+.toDate label{
+    display: flex;
+    flex-direction: column;
+    margin-right: 15px;
+}
+
+.fromDate input, .toDate input{
+    width: 150px;
+    padding: 5px;
+}
+.btnl2 {
+    background-color: rgb(49, 122, 190);
+    color: white;
+    font-weight: 600;
+    width: 150px;
+    box-shadow: 2px 2px 4px black;
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 5px;
+    line-height: 14px;
+    text-align: center;
+    margin: 15px 0;
+}
+.name1, .reason, .department{
+    display: flex;
+    flex-direction: column;
+}
+.modal button{
+    margin-right: 0;
+}
+.modal h2, .modal .name1, .modal .date, .modal .reason{
+    margin: 20px 0;
+}
+.name1 input{
+    padding: 5px;
+}
+.box{
+    width: max-content;
+    height: max-content;
+    margin: 0;
+    display: inline-block;
+}
+.leavebtn{
+    background-color: rgb(49, 122, 190);
+    color: white;
+    font-weight: 600;
+    width: max-content;
+    box-shadow: 2px 2px 4px black;
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 5px;
+    line-height: 14px;
+    text-align: center;
+    margin: 15px 0;
+}
