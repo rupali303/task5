@@ -23,7 +23,7 @@ function HodLogin1() {
       </div>
       <div style={{ height: "90vh", width: "90vw", border: "2px solid", display: "flex", justifyContent: "center", alignItems: "center", margin: "0 auto", borderTop:"none"}}>
       
-        {allLeavesData ? <button onClick={handleRequests} className={classes.leavebtn}>Proceed to see the leave requests submitted</button>
+        {allLeavesData && allLeavesData ? <button onClick={handleRequests} className={classes.leavebtn}>Proceed to see the leave requests submitted</button>
           : <h4 style={{ color: "red", fontWeight: "600", fontSize: "25px" }}>No leave requests available</h4>
         }
     </div >

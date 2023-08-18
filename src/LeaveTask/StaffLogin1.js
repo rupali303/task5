@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import classes from "./main.module.css"
 import Box from '@mui/material/Box';
+// import Button from '@mui/material/Button';
+// import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { useNavigate } from 'react-router-dom';
 import Card from '@mui/material/Card';
@@ -22,7 +24,7 @@ const style = {
 
 function StaffLogin1() {
 
-  const regPersons = JSON.parse(window.localStorage.getItem('registerData'));
+  const regPersons = JSON.parse(window.localStorage.getItem('register'));
   const logPerson = JSON.parse(window.localStorage.getItem('logPerson'));
   const staffleave = JSON.parse(window.localStorage.getItem(logPerson.id));
   const leaveObj = JSON.parse(window.localStorage.getItem("leaveObj"));
@@ -43,16 +45,26 @@ function StaffLogin1() {
     status: ''
   })
 
+ 
+
   const [data, setData] = useState([])
   const [allLeavesData, setAllLeavesData] = useState([]);
 
+  // const [name1, setName1] = useState('');
+  // const [startDate, setStartDate] = useState('');
+  // const [endDate, setEndDate] = useState('');
+  // const [reason, setReason] = useState('');
+
   const handleChange = (e) => {
-    
+    console.log(e);
+    console.log(e.target);
+    console.log(e.target.id);
     setStaff((prevState) => ({ ...prevState, [e.target.id]: e.target.value }));
   }
 
   useEffect(() => {
     const submittedLeaveData = localStorage.getItem(logPerson.id);
+    console.log(submittedLeaveData);
     if (submittedLeaveData) {
       setData(JSON.parse(submittedLeaveData));
     }
@@ -60,6 +72,7 @@ function StaffLogin1() {
 
   useEffect(() => {
     const submittedAllLeaveData = localStorage.getItem("allLeavesData");
+    console.log(submittedAllLeaveData);
     if (submittedAllLeaveData) {
       setAllLeavesData(JSON.parse(submittedAllLeaveData));
     }
@@ -77,6 +90,9 @@ function StaffLogin1() {
     navigate('/staffLogin2');
   };
 
+console.log(logPerson.id);
+console.log(allLeavesData);
+
   const handleLogout = () => {
     navigate('/')
   }
@@ -92,25 +108,28 @@ function StaffLogin1() {
   return (
     <>
 
-      <div style={{ height: "90%", width: "90vw", border: "2px solid", display: "flex", justifyContent: "center", alignItems: "center", margin: "2% auto 0", flexDirection: "column" }}>
+      <div style={{ height: "100%", width: "100%", border: "1px solid gray", display: "flex", justifyContent: "center", alignItems: "center", margin: "2% auto 0", flexDirection: "column" }}>
+        {/* <div style={{ width: "92%", height: "50px", display: "flex", alignItems: "center", border: "1px solid", margin: "1% auto" }}> */}
+        {/* <button onClick={handleBack} style={{ padding: "5px", backgroundColor: "rgb(53, 141, 213)", marginLeft: "20px", width: "80px", border: "1px solid", borderRadius: "5px" }}>Back</button> */}
         <button onClick={handleLogout} style={{ marginTop: "15px", marginLeft: "auto", padding: "5px", backgroundColor: "rgb(53, 141, 213)", marginRight: "20px", width: "80px", border: "2px solid", borderRadius: "5px", boxShadow: "2px 2px 4px black" }}>Logout</button>
+        {/* </div> */}
         {data && staffleave ? <div style={{ height: "100%", width: "100%", padding: "10px" }}>
-          <h4 style={{ color: "red", fontWeight: "600", fontSize: "25px" }}>Number of leaves applied: {staffleave.length}</h4>
-          <h4 style={{ color: "red", fontWeight: "600", fontSize: "25px" }}>Leave Details : </h4>
-          {staffleave.map((staff) => {
-            return <Card className={classes.box} sx={{ maxWidth: "350px", border: "2px solid", padding: "5px", margin: "20px" }}>
+          <h4 style={{ color: "blue", fontWeight: "600", fontSize: "25px" }}>Number of leaves applied: {staffleave.length}</h4>
+          {/* <h4 style={{ color: "blue", fontWeight: "600", fontSize: "25px" }}>Leave Details : </h4> */}
+          {staffleave && staffleave.map((staff) => {
+            return <Card className={classes.box} sx={{ maxWidth: "350px", border: "1px solid gray", padding: "5px", margin: "20px" }}>
               <CardContent>
-                <Typography variant="h5" component="div" sx={{ fontSize: "16px" }}>
+                <Typography variant="h5" component="div" sx={{ fontSize: "16px",fontWeight:"bold" }}>
                   Leave from {staff.startDate} to {staff.endDate}
                 </Typography>
-                <Typography variant="h5" component="div" sx={{ fontSize: "16px" }}>
+                <Typography variant="h5" component="div" sx={{ fontSize: "16px",fontWeight:"bold" }}>
                   Number of Days : {((new Date(staff.endDate)).getTime() - (new Date(staff.startDate)).getTime()) /
                     (1000 * 60 * 60 * 24) + 1}
                 </Typography>
-                <Typography sx={{ fontSize: "25px", marginTop: "20px" }}>
+                <Typography sx={{ fontSize: "15px", marginTop: "20px",fontWeight:"bold" }}>
                   Reason: {staff.reason}
                 </Typography>
-                <Typography variant="h5" component="div" sx={{ fontSize: "16px" }}>
+                <Typography variant="h5" component="div" sx={{ fontSize: "16px",fontWeight:"bold" }}>
                   Status: Pending
                 </Typography>
               </CardContent>
@@ -133,12 +152,13 @@ function StaffLogin1() {
           <Box sx={style}>
             <form className={classes.modal}>
               <h2>Leave Details</h2>
-              <div className={classes.name1}>
+              {/* <div className={classes.name1}>
                 <label htmlFor="name1">Name:</label>
                 <input
                   type="text"
                   id="name1"
                   value={staff.name1}
+                  // onChange={(e) => setName1(e.target.value)}
                   onChange={handleChange}
 
                 />
@@ -149,10 +169,11 @@ function StaffLogin1() {
                   type="text"
                   id="department"
                   value={staff.department}
+                  // onChange={(e) => setName1(e.target.value)}
                   onChange={handleChange}
                   style={{ padding: "5px" }}
                 />
-              </div>
+              </div> */}
               <div className={classes.date}>
                 <div className={classes.fromDate}>
                   <label htmlFor="startDate">From</label>

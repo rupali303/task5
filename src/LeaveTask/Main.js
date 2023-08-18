@@ -9,7 +9,7 @@ import StaffLogin1 from './StaffLogin1'
 import StaffLogin2 from './StaffLogin2'
 
 
-function Task5New({leaveObj}) {
+function Main({leaveObj}) {
 
     const router = createBrowserRouter(
         createRoutesFromElements(
@@ -31,4 +31,4 @@ function Task5New({leaveObj}) {
     )
 }
 
-export default Task5New
+export default Main

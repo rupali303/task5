@@ -16,16 +16,19 @@ function HodLogin2() {
     const allLeavesData = JSON.parse(localStorage.getItem("allLeavesData"));
     const logPerson = JSON.parse(window.localStorage.getItem('logPerson'));
 
+   
 
     const handleApprove = (key) => {
-        const leaveObj =allLeavesData && allLeavesData.find((leave) => key === leave.key);
+        // console.log(key);
+        const leaveObj =allLeavesData && allLeavesData ? allLeavesData.find((leave) => key === leave.key):null;
         leaveObj.status = 'Approved'
         localStorage.setItem('leaveObj', JSON.stringify(leaveObj));
         setFlag('Approved')
     }
 
     const handleReject = (key) => {
-        const leaveObj =allLeavesData && allLeavesData.find((leave) => key === leave.key);
+        // console.log(key);
+        const leaveObj =allLeavesData && allLeavesData ? allLeavesData.find((leave) => key === leave.key):null;
         leaveObj.status = 'Rejected'
         localStorage.setItem('leaveObj', JSON.stringify(leaveObj));
         setFlag('Rejected')
@@ -51,15 +54,15 @@ function HodLogin2() {
                 <button onClick={handleLogout} style={{ marginLeft: "auto", padding: "5px", backgroundColor: "rgb(53, 141, 213)", marginRight: "20px", width: "80px", border: "1px solid", borderRadius: "5px" }}>Logout</button>
             </div>
             <div style={{ height: "max-content", width: "90vw", border: "2px solid", display: "flex", flexDirection: "row", flexWrap: "wrap", margin: "0 auto", borderTop: "none" }}>
-                {(allLeavesData.filter((leaves) => leaves.department == logPerson.department)).map((staff) => {
+                {(allLeavesData && allLeavesData.filter((leaves) => leaves.department === logPerson.department)).map((staff) => {
                     return <Card sx={{ border: "2px solid", padding: "5px", margin: "20px", display: "inline-block", height: "max-content", width: "max-content" }}>
                         <CardContent>
-                            <Typography sx={{ fontSize: "20px" }}>
+                            {/* <Typography sx={{ fontSize: "20px" }}>
                                 {staff.name1}
                             </Typography>
                             <Typography sx={{ fontSize: "20px" }}>
                                 {staff.department}
-                            </Typography>
+                            </Typography> */}
                             <Typography variant="h5" component="div" sx={{ fontSize: "15px" }}>
                                 Leave from {staff.startDate} to {staff.endDate}
                             </Typography>
@@ -72,6 +75,9 @@ function HodLogin2() {
                             </Typography>
                             <Typography variant="h5" component="div" sx={{ fontSize: "15px" }}>
                                 {staff.reason}
+                            </Typography>
+                            <Typography variant="h5" component="div" sx={{ fontSize: "15px" }}>
+                                {staff.status}
                             </Typography>
                         </CardContent>
                         <CardActions>
